@@ -25,12 +25,12 @@ shinyServer(function(input, output) {
                                                   color = input$col,
                                                   clarity = input$clar))
         # Drow the plot using ggplot2
-        plot <- ggplot(data=diam, aes(x=carat, y = price))+
+        x <- ggplot(data=diam, aes(x=carat, y = price))+
             geom_point(aes(color = cut), alpha = 0.3)+
             geom_smooth(method = "lm")+
             geom_vline(xintercept = input$car, color = "red")+
             geom_hline(yintercept = pred, color = "green")
-       plot
+       x
     })
     output$result <- renderText({
         # renders the text for the prediction below the graph
